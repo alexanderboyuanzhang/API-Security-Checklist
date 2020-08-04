@@ -48,9 +48,9 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Do not forget to turn the DEBUG mode OFF.
 
 ## Output
-- [ ] Send `X-Content-Type-Options: nosniff` header.
-- [ ] Send `X-Frame-Options: deny` header.
-- [ ] Send `Content-Security-Policy: default-src 'none'` header.
+- [ ] Send `X-Content-Type-Options: nosniff` header. Sending the new `X-Content-Type-Options` response header with the value `nosniff` will prevent Internet Explorer from MIME-sniffing a response away from the declared content-type.
+- [ ] Send `X-Frame-Options: deny` header. The page cannot be displayed in a frame, regardless of the site attempting to do so.
+- [ ] Send `Content-Security-Policy: default-src 'none'` header. The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against cross-site scripting attacks (XSS).
 - [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version`, etc.
 - [ ] Force `content-type` for your response. If you return `application/json`, then your `content-type` response is `application/json`.
 - [ ] Don't return sensitive data like `credentials`, `Passwords`, or `security tokens`.
